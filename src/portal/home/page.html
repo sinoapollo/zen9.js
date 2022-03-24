@@ -1,0 +1,20 @@
+<div  class="${styles.mainBlock}">
+    <use-template name="/header"></use-template><!-- 可以在任何位置调用template -->
+    <div class="${styles.container}" ><!-- list loop select 如果没有指定template，子节点就是template内容。 数组作为参数，则调用template时会有两个内置变量：data._index_ 和 data._value_ -->
+        <list data-list="data.nums">
+            <div style="cursor:pointer" onclick="this.demofunc('${data._index_}', '${data._value_}')">${data._value_} (点我可以看到弹窗）</div>
+            <!--onXXX是h5属性，这里扩展了，如果在onXXX中使用 this.XXX() 的方式调用，则调用的是对应的ts文件中定义的类方法，否则和原来h5的规则一样-->
+        </list>
+        <loop from="100" count="30" step="2" data="{'name':'循环'}">
+            <div style="float: left;width:10%;">${data.subTitle} ${data.name} ${data._index_} - ${data._value_}</div>
+        </loop>
+        <select name="sel" template="seltemplate" data-list="data.nums">
+            <option value="">空白</option>
+        </select>
+    </div>
+    <div style="clear: both"></div>
+</div>
+
+<template name="seltemplate">
+    <option value="${data._value_}">${data._value_}</option>
+</template>

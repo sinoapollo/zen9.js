@@ -1,0 +1,9 @@
+{
+    "title" : "演示",
+    "nums" : [0, 2, 5, 8, 12, 15],
+    "vals" : {
+        "a" : "a string",
+        "b" : "b is boy",
+        "c" : "c for cat"
+    }
+}

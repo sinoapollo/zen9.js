@@ -1,0 +1,10 @@
+<div class="logo">
+    <img src="../../assets/logo.svg" /><!--img 标签的src属性中指定的jpg/png/svg等文件必须能通过相对路径找到，webpack会自动打包这个文件-->
+</div>
+<div class="header"><!-- 全局css类，在 /src/assets/style.css 中定义，且有 :global 限定-->
+    <div class="title">${i18n.header.title}${data.subTitle}</div>
+</div>
+<div class="headernavi">
+            User: ${data.curUser.userID} Score: ${data.curUser.score}
+</div>
+<div style="clear: both"></div>

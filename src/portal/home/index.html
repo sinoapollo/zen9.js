@@ -1,0 +1,14 @@
+<use-template name="/header"></use-template><!--调用全局template，注意header前面的 /, 这个是全局的路径，是在router中搜索的，所以全局template也必须在router中指定. 如果没有 / 则在本文件内寻找 template定义-->
+<div  class="${styles.mainBlock}"><!-- styles是内置对象，如果用到 styles.XXX 的css类，则必须在ts文件中通过import引入对应的css文件 -->
+    <if condition="${data.showTitle}"><!-- data是内置对象，函数调用时指定内容 -->
+        <div class="${styles.title}">${data.subTitle}</div>
+    </if>
+    <div class="${styles.container}">
+        <list template="valstemplate" data-object="data.vals"></list><!-- js object 作为参数，注意这里data前面没有 "${"。 调用template时会有两个内置变量：data._key_ 和 data._value_ -->
+    </div>
+    <div style="clear: both"></div>
+</div>
+
+<template name="valstemplate">
+    <div style="cursor:pointer" href="/home/page">${data._key_} : ${data._value_} (点我可以跳转到下一个页面）</div>
+</template>
